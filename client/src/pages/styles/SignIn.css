@@ -1,5 +1,58 @@
 #logo-name{
-    height: 75px;
+    height: 54px;
+    width: 281px;
+    height: auto;
     margin: 40px 0px;
 }
+.signInCard{
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#signInBtn{
+    color: white;
+    text-transform: uppercase;
+    background: #9e005d;
+    margin: 20px 0px;
+    padding: 15px;
+    width: 80%;
+    border-radius: 15px;
+    font-size: large;
+    border: none;
+    width: 330px;
+    height: 62px;
+}
+.halfCard{
+    width: 50%;
+}
+#or{
+    color: gray;
+    margin: 20px 0px;
+}
+#googleSign{
+    color: #518ef8;
+}
+#googleSignSvg{
+    width: 24px;
+    height: 24px;
+    margin: 0px 10px;
+}
 
+#forgot{
+    font-size: small;
+    color: gray;
+    margin: 20px 0px;
+}
+#noAccount{
+    width: 100%;
+    font-size: small;
+    color: darkslategray;
+    border-top: gray solid .5px;
+    border-bottom: gray solid .5px;
+    padding: 30px 0px;
+    margin: 20px 0px;
+}
+#register{
+    color: blue;
+}
