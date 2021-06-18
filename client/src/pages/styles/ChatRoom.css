@@ -1,6 +1,6 @@
 .chatWrapper{
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
 }
 #chatAvatar{
     margin: 0px 10px;
@@ -22,6 +22,7 @@
     justify-content: space-between;
 }
 #chatInput{
+    background: #21a3c9;
     margin: 0;
     width: 100%;
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import './styles/ChatRoom.css';
 
 import firebase from '../components/Firebase';
@@ -17,6 +17,8 @@ const firestore = firebase.firestore();
 const auth = firebase.auth();
 
 function ChatRoom(){
+
+    const dummy = useRef();
 
     const messagesRef = firestore.collection('messages');
     const query = messagesRef.orderBy('createdAt').limit(25);
@@ -38,19 +40,28 @@ function ChatRoom(){
         })
 
         setFormValue('');
+        dummy.current.scrollIntoView({ behavior: 'smooth' })
     }
 
 
     return(
         <div className="chatWrapper">
             <div id="chatNav">
-                <img className="chatIcon" src="./assets/images/icons/user.svg" alt="user_icon"/>
-                <img onClick={() => auth.signOut()} className="chatIcon" src="./assets/images/icons/close.svg" alt="close_icon"/>
+                <div>
+                <img className="chatIcon" src="./assets/images/icons/jabberBoxLogo.svg" alt="user_icon"/>
+                </div>
+                
+                <div>
+                    <img className="chatIcon" src="./assets/images/icons/user.svg" alt="user_icon"/>
+                    <img onClick={() => auth.signOut()} className="chatIcon" src="./assets/images/icons/close.svg" alt="close_icon"/>
+                </div>
+                
                 
             </div>
             <div id="chatBox">
-                <div className="flexCol">
+                <div className="flexCol scroll">
                     {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg}/>)}
+                    <div ref={dummy}></div>
                 </div>
             <form className="flex" onSubmit={sendMessage}>
                 <input id="chatInput" value={formValue} onChange={(e) => setFormValue(e.target.value)}/>
