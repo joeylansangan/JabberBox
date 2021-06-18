@@ -5,6 +5,13 @@ body {
   height: 100%;
   font-family: 'Open Sans', sans-serif;
 }
+.flex{
+  display: flex;
+}
+.flexCol{
+  display: flex;
+  flex-direction: column;
+}
 .flexCenter{
   display: flex;
   align-items: center;

@@ -1,4 +1,57 @@
+.chatWrapper{
+    display: flex;
+    min-height: 100vh;
+}
 #chatAvatar{
+    margin: 0px 10px;
     height: 50px;
     width: 50px;
+      border-radius: 50%;
+}
+
+#chatNav{
+    display: flex;
+    flex-direction: column;
+    background: #1a1a1a;
+    padding: 30px;
+}
+#chatBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#chatInput{
+    margin: 0;
+    width: 100%;
+}
+.chatIcon{
+    width: 32px;
+    height: 32px;
+    margin-bottom: 30px;
+}
+.message{
+    display: flex;
+    margin: 20px;
+}
+.sent{
+    align-self: flex-end;
+}
+#chatSend{
+    width: 175px;
+    text-transform: uppercase;
+    border: none;
+    font-weight: 500;
+}
+.message p{
+    background: #0c92f8;
+    margin: 0;
+    color: white;
+    border-radius: 30px;
+    /* min-width: 100px; */
+    padding: 0px 15px;
+}
+.received p{
+    background: gainsboro;
+    color: #1a1a1a;
 }

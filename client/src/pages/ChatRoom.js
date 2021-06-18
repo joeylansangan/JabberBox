@@ -4,14 +4,14 @@ import './styles/ChatRoom.css';
 import firebase from '../components/Firebase';
 import 'firebase/firestore';
 
-import SignOut from '../components/SignOut';
+// import SignOut from '../components/SignOut';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
 
-import avatar1 from './avatars/main.png';
-import avatar2 from './avatars/fade.png';
-import avatar3 from './avatars/sunglasses.png';
-import avatar4 from './avatars/redhair.png';
-import avatar5 from './avatars/blackhair.png';
+// import avatar1 from './avatars/main.png';
+// import avatar2 from './avatars/fade.png';
+// import avatar3 from './avatars/sunglasses.png';
+// import avatar4 from './avatars/redhair.png';
+// import avatar5 from './avatars/blackhair.png';
 
 const firestore = firebase.firestore();
 const auth = firebase.auth();
@@ -42,17 +42,22 @@ function ChatRoom(){
 
 
     return(
-        <div className="wrapper">
+        <div className="chatWrapper">
+            <div id="chatNav">
+                <img className="chatIcon" src="./assets/images/icons/user.svg" alt="user_icon"/>
+                <img onClick={() => auth.signOut()} className="chatIcon" src="./assets/images/icons/close.svg" alt="close_icon"/>
+                
+            </div>
             <div id="chatBox">
-            {/* <h2>Chat here</h2> */}
-            {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg}/>)}
-            <SignOut />
-        
-            <form onSubmit={sendMessage}>
-                <input value={formValue} onChange={(e) => setFormValue(e.target.value)}/>
-                <button type="submit">Send</button>
+                <div className="flexCol">
+                    {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg}/>)}
+                </div>
+            <form className="flex" onSubmit={sendMessage}>
+                <input id="chatInput" value={formValue} onChange={(e) => setFormValue(e.target.value)}/>
+                <button id="chatSend" type="submit">Send</button>
             </form>
             </div>
+                      {/* <SignOut /> */}
         </div>
     )
 }
@@ -65,8 +70,9 @@ function ChatMessage(props) {
  
     return (
         <div className={`message ${messageClass}`}>
-            <img id="chatAvatar" src={avatar2} alt="user"/>
-            <p>{text}</p>
+            <img id="chatAvatar" src={photoURL} alt="user"/>
+            {/* <img id="chatAvatar" src={avatar2} alt="user"/> */}
+            <p className="flexCenter">{text}</p>
         </div>
         
     )
