@@ -32,6 +32,9 @@
 }
 #googleSign{
     color: #518ef8;
+    background: none;
+    border: none;
+    font-size: medium;
 }
 #googleSignSvg{
     width: 24px;

@@ -1,7 +1,18 @@
 import React from 'react';
 import './styles/SignIn.css';
 
+import firebase from '../components/Firebase'
+
+
+const auth = firebase.auth();
+
 function SignIn(){
+    
+    const signInWithGoogle = () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider);
+    }
+
     return(
         <div className="wrapper flexCenter">
             {/* <div className="svgCard" className="halfCard">
@@ -20,9 +31,9 @@ function SignIn(){
                     <input placeholder="password"></input>
                     <button id="signInBtn">Log In</button>
                     <span id="or">OR</span>
-                    <span id="googleSign" className="flexCenter"><img id="googleSignSvg" src="./assets/images/icons/search.svg" />Sign In with Google</span>
+                    <button onClick={signInWithGoogle} id="googleSign" className="flexCenter"><img id="googleSignSvg" src="./assets/images/icons/search.svg" alt="google auth"/>Sign In with Google</button>
                     <span id="forgot" className="flexCenter">Forgot Password?</span>
-                    <span id="noAccount">Don't have an account? <a id="register">Register</a></span>
+                    <span id="noAccount">Don't have an account? <a href="https://www.youtube.com/watch?v=zQyrwxMPm88&t=184s" id="register">Register</a></span>
                 </div>
 
             </div>
